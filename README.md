@@ -14,5 +14,5 @@ This is a Role-Based Access Control (RBAC) library for Go applications, designed
 To install the module, use `go get`:
 
 ```bash
-go get github.com/rv-nath/rbac-rv@v1.0.0
+go get github.com/rv-nath/rbac-rv@v0.1.0
 

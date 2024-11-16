@@ -31,12 +31,14 @@ type RBAC struct {
 	rolePermissionsCache map[string]RolePermissions
 	fetchUserRoles       func(userID string) (UserRoles, error)
 	fetchRolePerms       func(roleID string) (RolePermissions, error)
+	fetchResources       func() ([]string, error)
 }
 
 // NewRBAC creates an RBAC instance with provided fetch functions
 func NewRBAC(
 	fetchUserRoles func(string) (UserRoles, error),
 	fetchRolePermissions func(string) (RolePermissions, error),
+	fetchResources func() ([]string, error),
 ) *RBAC {
 	// log.Trace("Creating a ne winstance of RBAC...")
 	return &RBAC{
@@ -44,6 +46,7 @@ func NewRBAC(
 		rolePermissionsCache: make(map[string]RolePermissions),
 		fetchUserRoles:       fetchUserRoles,
 		fetchRolePerms:       fetchRolePermissions,
+		fetchResources:       fetchResources,
 	}
 }
 

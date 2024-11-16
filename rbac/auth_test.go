@@ -19,7 +19,12 @@ func TestCheckPermission(t *testing.T) {
 		}, nil
 	}
 
-	rbac := NewRBAC(fetchUserRoles, fetchRolePermissions)
+	fetchResources := func() ([]string, error) {
+		// Return a mock list of fetchResources
+		return []string{"user", "order"}, nil
+	}
+
+	rbac := NewRBAC(fetchUserRoles, fetchRolePermissions, fetchResources)
 
 	tests := []struct {
 		name           string

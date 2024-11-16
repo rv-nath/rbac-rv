@@ -2,8 +2,7 @@ package rbac
 
 import (
 	"sync"
-
-	log "github.com/sirupsen/logrus"
+	// log "github.com/sirupsen/logrus"
 )
 
 // Userroles stores the list of roles associated with a user.
@@ -39,7 +38,7 @@ func NewRBAC(
 	fetchUserRoles func(string) (UserRoles, error),
 	fetchRolePermissions func(string) (RolePermissions, error),
 ) *RBAC {
-	log.Trace("Creating a ne winstance of RBAC...")
+	// log.Trace("Creating a ne winstance of RBAC...")
 	return &RBAC{
 		userRolesCache:       make(map[string]UserRoles),
 		rolePermissionsCache: make(map[string]RolePermissions),
